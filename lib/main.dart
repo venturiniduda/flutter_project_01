@@ -16,16 +16,68 @@ class MainApp extends StatelessWidget {
   const MainApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: Text('Scaffold Example'),
+        ),
         body: Center(
-          child: Text(
-            'Hello World! =D',
-            style: TextStyle(
-              color: Color.fromARGB(255, 203, 139, 255),
-              fontSize: 30,
-            ),
+          child: Text('Corpo do Aplicativo'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            // Adicionar ação aqui
+            //   final snackBar = SnackBar(
+            //     content: Text('Snackbar de Exemplo'),
+            //     duration: Duration(seconds: 5),
+            //   );
+            //   // Exibe o snackbar na tela
+            //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          },
+          child: Icon(Icons.add),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(color: Colors.blue),
+                child: Text('Menu'),
+              ),
+              ListTile(
+                title: Text('Item 1'),
+                onTap: () {
+                  // Adicionar ação aqui
+                },
+              ),
+              ListTile(
+                title: Text('Item 2'),
+                onTap: () {
+                  // Adicionar ação aqui
+                },
+              ),
+            ],
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.business),
+              label: 'Business',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.school),
+              label: 'School',
+            ),
+          ],
+          selectedItemColor: Colors.amber[800],
+          onTap: (int index) {
+            // Adicionar ação aqui
+          },
         ),
       ),
     );
